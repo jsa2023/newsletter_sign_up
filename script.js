@@ -1,5 +1,5 @@
 const subscribeBtn = document.querySelector('.subscribe-button');
-const emailInput = document.querySelector('#email-input');
+const emailInput = document.querySelector('.email-input');
 const invalidEmailInput = document.querySelector('.invalid-email-label');
 const subscribeForm = document.querySelector('.subscribe-form');
 const successPage = 'success.html';
