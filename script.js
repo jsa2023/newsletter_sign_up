@@ -1,8 +1,8 @@
 const subscribeBtn = document.querySelector('.subscribe-button');
 const emailInput = document.querySelector('.email-input');
 const invalidEmailInput = document.querySelector('.invalid-email-label');
-const subscribeForm = document.querySelector('.subscribe-form');
-const successPage = 'success.html';
+const subscribeForm = document.querySelector('#subscribe-form');
+//const successPage = 'success.html';
 // if (validateEmail(email.value)) {
 //     subscribeBtn.style.background = 'hsl(4, 100%, 67%)';
 //     subscribeBtn.style.cursor = 'pointer';
@@ -22,18 +22,23 @@ emailInput.addEventListener('keyup', () => {
     if (!isValidEmail) {
         subscribeBtn.style.background = 'hsl(235, 18%, 26%)';
         invalidEmailInput.style.display = 'inline';
+        //emailInput.style.background = 'hsl(4, 100%, 67%)';
+        //emailInput.style.color = 'red';
         emailInput.classList.add('invalid-email-input');
     }
 });
 
-subscribeBtn.addEventListener('click', () => {
-    const isValidEmail = validateEmail(emailInput.value);
+subscribeForm.addEventListener("submit", (e) => {
 
+    
+    e.preventDefault();
+    const isValidEmail = validateEmail(emailInput.value);
+    //subscribeForm.setAttribute('action', successPage);
     if (isValidEmail) {
-        subscribeForm.setAttribute('action', successPage);
+        localStorage.setItem('emailAddress',emailInput.value);
         subscribeForm.submit();
-        console.log('OK');
-     }
+    }
+
 });
 
 const validateEmail = (email) => {

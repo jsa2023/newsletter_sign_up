@@ -17,8 +17,13 @@
 
     <p class="success-paragraph">A confirmation email has been sent to <span class="email-address">ash@loremcompany.com</span>. 
     Please open it and click the button inside to confirm your subscription.</p>
-
+    
+    <form action="/index.html" method="GET">
     <button class="dismiss-button">Dismiss message</button>
+    </form>
 </div>
+<script>
+  document.querySelector('.email-address').innerHTML = localStorage.getItem('emailAddress');
+</script>
 </body>
 </html>
